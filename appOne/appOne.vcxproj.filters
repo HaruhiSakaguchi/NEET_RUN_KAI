@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{98b5593d-6477-4e95-a744-1da920628e7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene">
+      <UniqueIdentifier>{54224c2d-2623-4a60-b7e0-0a13ea4e51e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="container">
+      <UniqueIdentifier>{9c9586f2-12b8-4890-b422-0db71504da61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene\base">
+      <UniqueIdentifier>{e64dba40-a118-4f9a-9d22-299551c399f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="character">
+      <UniqueIdentifier>{9875cba5-eeac-442a-9958-143fa2e7ab7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="character\anim,base,manager">
+      <UniqueIdentifier>{db941af4-e7d9-464c-a1eb-9f318858821d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map">
+      <UniqueIdentifier>{4c7bfe9f-0358-4bff-94b4-7e0384f78aab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="button">
+      <UniqueIdentifier>{10fd0c66-94b5-4281-a158-238f9f230669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hpGauge">
+      <UniqueIdentifier>{4665e2d4-7b30-4cff-a2bf-1f16a1209dc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map\map_text">
+      <UniqueIdentifier>{07192a06-99f3-4e3e-941d-7e2339224c8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="message">
+      <UniqueIdentifier>{8d4a6eae-a490-4e59-92fa-c39be983ec27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="obstacle&amp;trap">
+      <UniqueIdentifier>{78135ee6-0ea2-446a-9a09-aaff34117872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="recover_item">
+      <UniqueIdentifier>{47abe27a-c582-4331-b357-98ee029f5c54}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint">
+      <Filter>リソース ファイル</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GAME.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME_OBJECT.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="gmain.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="STAGE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TITLE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CONTAINER.cpp">
+      <Filter>container</Filter>
+    </ClCompile>
+    <ClCompile Include="FADE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SCENE.cpp">
+      <Filter>scene\base</Filter>
+    </ClCompile>
+    <ClCompile Include="PLAYER.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="ENEMY_BULLET.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="CHARACTER.cpp">
+      <Filter>character\anim,base,manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CHARACTER_MANAGER.cpp">
+      <Filter>character\anim,base,manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ANIM.cpp">
+      <Filter>character\anim,base,manager</Filter>
+    </ClCompile>
+    <ClCompile Include="MAP.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="ANIMS.cpp">
+      <Filter>character\anim,base,manager</Filter>
+    </ClCompile>
+    <ClCompile Include="BUTTON.cpp">
+      <Filter>button</Filter>
+    </ClCompile>
+    <ClCompile Include="ENDING.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME_OVER.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="STAGE_CLEAR.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="STORY.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="LOADING.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ENEMY.cpp">
+      <Filter>character\anim,base,manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HP_GAUGE.cpp">
+      <Filter>hpGauge</Filter>
+    </ClCompile>
+    <ClCompile Include="MESSAGE.cpp">
+      <Filter>message</Filter>
+    </ClCompile>
+    <ClCompile Include="CAT.cpp">
+      <Filter>obstacle&amp;trap</Filter>
+    </ClCompile>
+    <ClCompile Include="HOLE.cpp">
+      <Filter>obstacle&amp;trap</Filter>
+    </ClCompile>
+    <ClCompile Include="COKE.cpp">
+      <Filter>recover_item</Filter>
+    </ClCompile>
+    <ClCompile Include="TIPS.cpp">
+      <Filter>recover_item</Filter>
+    </ClCompile>
+    <ClCompile Include="RAMEN.cpp">
+      <Filter>recover_item</Filter>
+    </ClCompile>
+    <ClCompile Include="BEAR.cpp">
+      <Filter>recover_item</Filter>
+    </ClCompile>
+    <ClCompile Include="EBIFURAI.cpp">
+      <Filter>obstacle&amp;trap</Filter>
+    </ClCompile>
+    <ClCompile Include="RYMAN.cpp">
+      <Filter>obstacle&amp;trap</Filter>
+    </ClCompile>
+    <ClCompile Include="PROLOGUE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="COUNT_DOWN.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CHINPIRA.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="MENHERA.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="ONISAN.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="PLAYER_BULLET.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GAME.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="GAME_OBJECT.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="STAGE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TITLE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CONTAINER.h">
+      <Filter>container</Filter>
+    </ClInclude>
+    <ClInclude Include="FADE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SCENE.h">
+      <Filter>scene\base</Filter>
+    </ClInclude>
+    <ClInclude Include="PLAYER.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY_BULLET.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="CHARACTER.h">
+      <Filter>character\anim,base,manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CHARACTER_MANAGER.h">
+      <Filter>character\anim,base,manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ANIM.h">
+      <Filter>character\anim,base,manager</Filter>
+    </ClInclude>
+    <ClInclude Include="MAP.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="ANIMS.h">
+      <Filter>character\anim,base,manager</Filter>
+    </ClInclude>
+    <ClInclude Include="BUTTON.h">
+      <Filter>button</Filter>
+    </ClInclude>
+    <ClInclude Include="ENDING.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GAME_OVER.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="STAGE_CLEAR.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="STORY.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="LOADING.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY.h">
+      <Filter>character\anim,base,manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HP_GAUGE.h">
+      <Filter>hpGauge</Filter>
+    </ClInclude>
+    <ClInclude Include="MESSAGE.h">
+      <Filter>message</Filter>
+    </ClInclude>
+    <ClInclude Include="CAT.h">
+      <Filter>obstacle&amp;trap</Filter>
+    </ClInclude>
+    <ClInclude Include="HOLE.h">
+      <Filter>obstacle&amp;trap</Filter>
+    </ClInclude>
+    <ClInclude Include="COKE.h">
+      <Filter>recover_item</Filter>
+    </ClInclude>
+    <ClInclude Include="TIPS.h">
+      <Filter>recover_item</Filter>
+    </ClInclude>
+    <ClInclude Include="RAMEN.h">
+      <Filter>recover_item</Filter>
+    </ClInclude>
+    <ClInclude Include="BEAR.h">
+      <Filter>recover_item</Filter>
+    </ClInclude>
+    <ClInclude Include="EBIFURAI.h">
+      <Filter>obstacle&amp;trap</Filter>
+    </ClInclude>
+    <ClInclude Include="RYMAN.h">
+      <Filter>obstacle&amp;trap</Filter>
+    </ClInclude>
+    <ClInclude Include="PROLOGUE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="COUNT_DOWN.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CHINPIRA.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="MENHERA.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="ONISAN.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="PLAYER_BULLET.h">
+      <Filter>character</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="assets\map1.txt">
+      <Filter>map\map_text</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
