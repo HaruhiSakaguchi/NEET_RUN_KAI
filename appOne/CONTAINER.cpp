@@ -621,6 +621,8 @@ void CONTAINER::LoadGraphics() {
 	Data.enemyBulletChara.img4 = loadImage("assets\\item\\item\\“GƒAƒCƒeƒ€\\cut.png");
 
 	Data.holeChara.img = loadImage("assets\\item\\item\\áŠQ•¨\\skull.png");
+	Data.hole2Chara.img = loadImage("assets\\item\\item\\áŠQ•¨\\skull.png");
+	Data.hole3Chara.img = loadImage("assets\\item\\item\\áŠQ•¨\\skull.png");
 	Data.cokeChara.img = loadImage("assets\\item\\item\\‰ñ•œ\\cola.png");
 	Data.tipsChara.img = loadImage("assets\\item\\item\\‰ñ•œ\\potato.png");
 	Data.ramenChara.img = loadImage("assets\\item\\item\\‰ñ•œ\\men.png");

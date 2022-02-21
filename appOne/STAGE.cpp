@@ -47,8 +47,8 @@ void STAGE::draw() {
 	fill(Stage.textColor);
 	textSize(Stage.textSize);
 	text(Stage.str, Stage.pos.x, Stage.pos.y);
-	text(game()->characterManager()->player()->PlayerSta(), 100, 100);
-	text(game()->characterManager()->player()->interval(), 100, 150);
+	//text(game()->characterManager()->player()->PlayerSta(), 100, 100);
+	//text(game()->characterManager()->player()->interval(), 100, 150);
 
 
 	
@@ -69,7 +69,7 @@ void STAGE::draw() {
 	textSize(Stage.textSize);
 	text(stageNum, Stage.pos.x + Stage.textSize*3, Stage.pos.y);
 
-	text(delta,700,100);
+	//text(delta,700,100);
 
 
 #endif

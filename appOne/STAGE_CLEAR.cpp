@@ -72,9 +72,18 @@ void STAGE_CLEAR::draw() {
 	game()->fade()->draw();
 }
 void STAGE_CLEAR::nextScene() {
-	if (StageClear.goFlag == 0) {
-		if (isTrigger(KEY_SPACE) || (isTrigger(MOUSE_LBUTTON) && game()->button()->collisionRect(StageClear.nextPos, StageClear.buttonW, StageClear.buttonH))) {
-			setGoFlag(1);
+	if (game()->curStateId() != GAME::FOURTH) {
+		if (StageClear.goFlag == 0) {
+			if (isTrigger(KEY_SPACE) || (isTrigger(MOUSE_LBUTTON) && game()->button()->collisionRect(StageClear.nextPos, StageClear.buttonW, StageClear.buttonH))) {
+				setGoFlag(1);
+			}
+		}
+	}
+	else if (game()->curStateId() == GAME::FOURTH) {
+		if (StageClear.goFlag == 0) {
+			if (isTrigger(KEY_SPACE)||isTrigger(MOUSE_LBUTTON)) {
+				setGoFlag(1);
+			}
 		}
 	}
 	if(StageClear.returnFlag==0){
