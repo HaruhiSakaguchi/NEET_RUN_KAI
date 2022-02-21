@@ -157,7 +157,17 @@ void PLAYER::CheckState() {
     }
 }
 void PLAYER::fall() {
-    Chara.wx = game()->characterManager()->hole()->px();
+    Chara.wx = game()->characterManager()->hole1()->px();
+    Chara.vy = 10;
+    Player.interval = Player.maxInterval;
+}
+void PLAYER::fall2() {
+    Chara.wx = game()->characterManager()->hole2()->px();
+    Chara.vy = 10;
+    Player.interval = Player.maxInterval;
+}
+void PLAYER::fall3() {
+    Chara.wx = game()->characterManager()->hole3()->px();
     Chara.vy = 10;
     Player.interval = Player.maxInterval;
 }

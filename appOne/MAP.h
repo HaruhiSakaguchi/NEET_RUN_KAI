@@ -36,7 +36,6 @@ public:
 		ENEMY_BULLET_ID = 'c',
 		CAT_ID = 'd',//10
 		CHINPIRA_ID = 'e',
-		MANHOLE_ID = 'f',//3
 		ENEMY_ID = 'g',//1
 		COKE_ID = 'h',//7
 		TIPS_ID = 'i',//4
@@ -46,6 +45,11 @@ public:
 		RYMAN_ID = 'm',//5
 		MENHERA_ID = 'n',
 		ONISAN_ID = 'o',
+		MANHOLE_ID = 'f',//1
+		MANHOLE2_ID = 'p',//1
+		MANHOLE3_ID = 'q',//1
+
+
 	};
 private:
 	DATA Map;

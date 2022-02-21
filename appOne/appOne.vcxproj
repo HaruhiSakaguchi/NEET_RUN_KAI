@@ -170,6 +170,8 @@
     <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="GAME_OVER.cpp" />
     <ClCompile Include="gmain.cpp" />
+    <ClCompile Include="HOLE2.cpp" />
+    <ClCompile Include="HOLE3.cpp" />
     <ClCompile Include="HP_GAUGE.cpp" />
     <ClCompile Include="COKE.cpp" />
     <ClCompile Include="LOADING.cpp" />
@@ -215,6 +217,8 @@
     <ClInclude Include="GAME.h" />
     <ClInclude Include="GAME_OBJECT.h" />
     <ClInclude Include="GAME_OVER.h" />
+    <ClInclude Include="HOLE2.h" />
+    <ClInclude Include="HOLE3.h" />
     <ClInclude Include="HP_GAUGE.h" />
     <ClInclude Include="COKE.h" />
     <ClInclude Include="LOADING.h" />

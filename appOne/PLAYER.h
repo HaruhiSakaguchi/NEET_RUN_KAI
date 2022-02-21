@@ -44,6 +44,8 @@ private:
     void Launch();
 public:
     void fall();
+    void fall2();
+    void fall3();
     void Ddamage();
     bool died();
     bool survived();

@@ -15,6 +15,9 @@ public:
         int numEnemyBullets = 0;
         int numCats = 0;
         int numHoles = 0;
+        int numHoles1 = 0;
+        int numHoles2 = 0;
+        int numHoles3 = 0;
         int numCokes = 0;
         int numTips = 0;
         int numRamens = 0;
@@ -31,7 +34,9 @@ private:
     class ONISAN* Onisan = nullptr;
     class MENHERA* Menhera = nullptr;
     class CHINPIRA* Chinpira = nullptr;
-    class HOLE* Hole = nullptr;
+    class HOLE* Hole1 = nullptr;
+    class HOLE2* Hole2 = nullptr;
+    class HOLE3* Hole3 = nullptr;
 
 public:
     CHARACTER_MANAGER(class GAME* game);
@@ -46,7 +51,9 @@ public:
     class ONISAN* onisan() { return Onisan; }
     class MENHERA* menhera() { return Menhera; }
     class CHINPIRA* chinpira() { return Chinpira; }
-    class HOLE* hole() { return Hole; }
+    class HOLE* hole1() { return Hole1; }
+    class HOLE2* hole2() { return Hole2; }
+    class HOLE3* hole3() { return Hole3; }
 
 
 };

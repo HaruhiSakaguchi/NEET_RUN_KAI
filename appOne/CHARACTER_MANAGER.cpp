@@ -9,6 +9,8 @@
 #include"ENEMY_BULLET.h"
 #include"CAT.h"
 #include"HOLE.h"
+#include"HOLE2.h"
+#include"HOLE3.h"
 #include"COKE.h"
 #include"TIPS.h"
 #include"RAMEN.h"
@@ -53,7 +55,9 @@ void CHARACTER_MANAGER::create() {
     Onisan = new ONISAN(game());
     Menhera = new MENHERA(game());
     Chinpira = new CHINPIRA(game());
-    Hole = new HOLE(game());
+    Hole1 = new HOLE(game());
+    Hole2 = new HOLE2(game());
+    Hole3 = new HOLE3(game());
 
     int i, j = 0;
     for (i = 0; i < CharaMng.numPlayers; i++)       Characters[j++] = Player;
@@ -66,7 +70,9 @@ void CHARACTER_MANAGER::create() {
     for (i = 0; i < CharaMng.numCats; i++)          Characters[j++] = new CAT(game());
     for (i = 0; i < CharaMng.numCokes; i++)    Characters[j++] = new COKE(game());
     for (i = 0; i < CharaMng.numTips; i++)    Characters[j++] = new TIPS(game());
-    for (i = 0; i < CharaMng.numHoles; i++)    Characters[j++] = Hole;
+    for (i = 0; i < CharaMng.numHoles1; i++)    Characters[j++] = Hole1;
+    for (i = 0; i < CharaMng.numHoles2; i++)    Characters[j++] = Hole2;
+    for (i = 0; i < CharaMng.numHoles3; i++)    Characters[j++] = Hole3;
     for (i = 0; i < CharaMng.numRamens; i++)    Characters[j++] = new RAMEN(game());
     for (i = 0; i < CharaMng.numBears; i++)    Characters[j++] = new BEAR(game());
     for (i = 0; i < CharaMng.numRymans; i++)    Characters[j++] = new RYMAN(game());
@@ -140,7 +146,12 @@ void CHARACTER_MANAGER::update() {
                     if (Characters[j]->charaId() == 'f') {
                         Characters[i]->fall();
                     }
-
+                    if (Characters[j]->charaId() == 'p') {
+                        Characters[i]->fall2();
+                    }
+                    if (Characters[j]->charaId() == 'q') {
+                        Characters[i]->fall3();
+                    }
                     if (Characters[j]->charaId() == 'e') {
                         Characters[i]->Srecover();
                     }

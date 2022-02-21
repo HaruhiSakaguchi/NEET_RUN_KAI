@@ -501,6 +501,22 @@ void CONTAINER::CreateData() {
 	Data.holeChara.offsetRight = 70.0f * 2;
 	Data.holeChara.offsetBottom = 80.0f * 2;
 
+	Data.hole2Chara.charaId = MAP::MANHOLE2_ID;
+	Data.hole2Chara.groupId = 1;//敵グループは1
+	Data.hole2Chara.hp = 1;
+	Data.hole2Chara.offsetLeft = 20.0f * 2;
+	Data.hole2Chara.offsetTop = 0.0f * 2;
+	Data.hole2Chara.offsetRight = 70.0f * 2;
+	Data.hole2Chara.offsetBottom = 80.0f * 2;
+			 
+	Data.hole3Chara.charaId = MAP::MANHOLE3_ID;
+	Data.hole3Chara.groupId = 1;//敵グループは1
+	Data.hole3Chara.hp = 1;
+	Data.hole3Chara.offsetLeft = 20.0f * 2;
+	Data.hole3Chara.offsetTop = 0.0f * 2;
+	Data.hole3Chara.offsetRight = 70.0f * 2;
+	Data.hole3Chara.offsetBottom = 80.0f * 2;
+
 	Data.ebifuraiChara.charaId = MAP::EBIFURAI_ID;
 	Data.ebifuraiChara.hp = 1;
 	Data.ebifuraiChara.speed = -2.5f * 60;
@@ -531,6 +547,9 @@ void CONTAINER::CreateData() {
 	Data.charaMng.numChinpira = 1;
 	Data.charaMng.numCats = 10;
 	Data.charaMng.numEnemyBullets = 5;
+	Data.charaMng.numHoles1 = 1;
+	Data.charaMng.numHoles2 = 1;
+	Data.charaMng.numHoles3 = 1;
 	Data.charaMng.numHoles = 3;
 	Data.charaMng.numCokes = 7;
 	Data.charaMng.numTips = 4;
