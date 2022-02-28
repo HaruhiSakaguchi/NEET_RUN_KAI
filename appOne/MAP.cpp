@@ -94,11 +94,9 @@ void MAP::draw() {
                 float px = wx - Map.wx;
                 float py = wy - Map.wy;
                 if (charaId == '1') {
-                    //imageColor(0, 0, 0, 128);
                     image(Map.blockImg, px, py, Map.angle, Map.scale);
                 }
                 else if (charaId == '2') {
-                    //imageColor(255);
                     image(Map.poleImg, px, py, Map.angle, Map.scale);
                 }
             }

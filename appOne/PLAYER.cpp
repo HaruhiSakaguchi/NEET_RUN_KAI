@@ -51,10 +51,6 @@ void PLAYER::update() {
         }
         CollisionWithMap();
     }
-    if (Player.deathFlag == 1) {
-
-    }
-
 
 }
 void PLAYER::Launch() {
@@ -74,6 +70,7 @@ void PLAYER::Move() {
     if (Player.jumpFlag == 0 && (isTrigger(KEY_SPACE) || isTrigger(MOUSE_LBUTTON))) {
         Chara.vy = Player.initVecUp;
         Player.jumpFlag = 1;
+        setVjumpFlag(1);
     }
     if (Player.jumpFlag == 1) {
         Chara.vy += Player.gravity * delta;
@@ -157,17 +154,8 @@ void PLAYER::CheckState() {
     }
 }
 void PLAYER::fall() {
-    Chara.wx = game()->characterManager()->hole1()->px();
-    Chara.vy = 10;
-    Player.interval = Player.maxInterval;
-}
-void PLAYER::fall2() {
-    Chara.wx = game()->characterManager()->hole2()->px();
-    Chara.vy = 10;
-    Player.interval = Player.maxInterval;
-}
-void PLAYER::fall3() {
-    Chara.wx = game()->characterManager()->hole3()->px();
+    //Chara.wx = game()->characterManager()->hole1()->px();
+    Chara.wy = height;
     Chara.vy = 10;
     Player.interval = Player.maxInterval;
 }

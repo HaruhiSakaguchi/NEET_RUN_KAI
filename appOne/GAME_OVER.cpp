@@ -17,6 +17,7 @@ void GAME_OVER::create() {
 }
 void GAME_OVER::init() {
 	game()->fade()->inTrigger();
+	setbgmFlag(1);
 }
 void GAME_OVER::draw() {
 	clear(GameOver.backColor);
@@ -65,6 +66,12 @@ void GAME_OVER::draw() {
 
 	game()->fade()->draw();
 }
+void GAME_OVER::update() {
+	if (GameOver.bgmFlag == 1) {
+		playSound(GameOver.bgm);
+		setbgmFlag(0);
+	}
+}
 void GAME_OVER::nextScene() {
 	//ƒ^ƒCƒgƒ‹‚É–ß‚é
 	if (GameOver.returnFlag == 0) {
@@ -91,6 +98,8 @@ void GAME_OVER::nextScene() {
 			game()->changeScene(GAME::COUNT_DOWN_ID);
 			setRetryFlag(0);
 		}
+		setbgmFlag(0);
+		init();
 	}
     
 }

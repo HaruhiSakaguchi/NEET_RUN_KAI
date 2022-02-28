@@ -1,5 +1,6 @@
 #pragma once
 #include "GAME_OBJECT.h"
+#include"sound.h"
 class SCENE :
     public GAME_OBJECT
 {
@@ -11,5 +12,6 @@ public:
     virtual void update();
     virtual void draw();
     virtual void nextScene();
+    virtual void backGroundMusic();
 };
 

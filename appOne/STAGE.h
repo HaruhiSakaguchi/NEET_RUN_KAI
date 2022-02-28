@@ -22,6 +22,16 @@ public:
         COLOR gameOverColor;
 
         COLOR stageClearColor;
+
+        int bgm1 = 0;
+        int bgm2 = 0;
+        int bgmFlag = 1;
+        int bgm = 0;
+        int jump = 0;
+        int knock = 0;
+        int recover = 0;
+        int damage = 0;
+        int dead = 0;
     };
 private:
     DATA Stage;
@@ -36,5 +46,12 @@ public:
     void update();
     int count() { return Stage.count; }
     int flag() { return Stage.flag; }
+    void sound();
+    void setBgmFlag(int flag) {
+        Stage.bgmFlag = flag;
+    }
+    void setBgm(int bgm) {
+        Stage.bgm = bgm;
+    }
 };
 

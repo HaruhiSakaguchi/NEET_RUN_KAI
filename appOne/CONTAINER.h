@@ -18,8 +18,6 @@
 #include"ENEMY_BULLET.h"
 #include"CAT.h"
 #include"HOLE.h"
-#include"HOLE2.h"
-#include"HOLE3.h"
 #include"ENEMY.h"
 #include"ONISAN.h"
 #include"MENHERA.h"
@@ -71,8 +69,6 @@ private:
 		CHARACTER::DATA catChara;
 		CHARACTER::DATA batBulletChara;
 		CHARACTER::DATA holeChara;
-		CHARACTER::DATA hole2Chara;
-		CHARACTER::DATA hole3Chara;
 
 
 		CHARACTER::DATA cokeChara;

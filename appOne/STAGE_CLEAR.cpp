@@ -16,13 +16,14 @@ void STAGE_CLEAR::create() {
 }
 void STAGE_CLEAR::init() {
 	game()->fade()->inTrigger();
+	setBgmFlag(1);
+	playSound(StageClear.bgm);
 }
 void STAGE_CLEAR::draw() {
 	clear(StageClear.backColor);
 	rectMode(CORNER);
 	game()->button()->rectButton(StageClear.backToTitlePos, game()->container()->data().message.buttonColor, game()->container()->data().message.textColor, StageClear.backToTitleText, StageClear.buttonNameTextSize, StageClear.charaNum);
 	game()->button()->rectButton(StageClear.nextPos, game()->container()->data().message.buttonColor, game()->container()->data().message.textColor, StageClear.nextText, StageClear.buttonNameTextSize, StageClear.charaNum);
-	
 
 	COLOR ncolor;
 	COLOR tcolor;
@@ -71,6 +72,17 @@ void STAGE_CLEAR::draw() {
 	game()->button()->drawCursor();
 	game()->fade()->draw();
 }
+void STAGE_CLEAR::update() {
+	if (StageClear.bgmFlag == 1) {
+		if (game()->curStateId() != GAME::FOURTH) {
+			playSound(StageClear.bgm);
+		}
+		else {
+			playSound(game()->container()->data().gameOver.bgm);
+		}
+		setBgmFlag(0);
+	}
+}
 void STAGE_CLEAR::nextScene() {
 	if (game()->curStateId() != GAME::FOURTH) {
 		if (StageClear.goFlag == 0) {
@@ -116,10 +128,13 @@ void STAGE_CLEAR::nextScene() {
 
 			game()->changeScene(GAME::STORY_ID);
 			setGoFlag(0);
+			init();
 		}
 		else if (StageClear.returnFlag == 1) {
 		 game()->changeScene(GAME::TITLE_ID);
 		 setReturnFlag(0);
+		 setBgmFlag(0);
+		 init();
 		}
 	
 	}

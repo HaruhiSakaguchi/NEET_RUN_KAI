@@ -47,6 +47,12 @@ public:
 		const char* iText20 = "";
 		const char* itextLast = "";
 
+		int bgm = 0;
+		int bgmFlag = 1;
+		int line = 0; int lineFlag = 0;
+		int pachinco = 0; int pachincoFlag = 0;
+		int decision = 0; int decisionFlag = 0;
+
 	};
 private:
 	DATA Prologue;
@@ -57,6 +63,14 @@ public:
 	void update();
 	void nextScene();
 	void init();
-	
+	void mas(int flag ,int sound);//make a sound
+	void setFlagZero(int flag);
+	void setPachincoFlagOne();
+	void setPachincoFlagZero();
+	void setLineFlagOne();
+	void setLineFlagZero();
+	void setBgmFlag(int flag) {
+		Prologue.bgmFlag = flag;
+	}
 };
 

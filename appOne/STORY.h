@@ -16,6 +16,7 @@ public:
         const char* text2 = 0;
         const char* text3 = 0;
         int Flag = 0;
+        int otoFlag = 0;
         int backImage = 0;
         int backImg[5];
         int charaImg1 = 0;
@@ -34,6 +35,11 @@ public:
         float skipButtonH = skipTextSize * 1.5f;
         const char* skipText = "  スキップ";
 
+        int bgm1 = 0;
+        int bgm2 = 0;
+        int bgmFlag = 1;
+        int bgm = 0;
+
     };
 private:
     DATA Story;
@@ -47,6 +53,16 @@ public:
     void setAttentinonFlag(int flag = 0);
     void update();
     void backGround();
+    void setOtoFlag(int flag) {
+        Story.otoFlag = flag;
+    }
+    void setBgmFlag(int flag) {
+        Story.bgmFlag = flag;
+    }
+    void setBgm(int bgm) {
+        Story.bgm = bgm;
+    }
+    int StoryBgm() { return Story.bgm; }
 
 };
 

@@ -26,6 +26,9 @@ public:
         float buttonH = buttonNameTextSize * 2.0f;
         const char* continueText=0;
         const char* backToTitleText=0;
+
+        int bgm = 0;
+        int bgmFlag = 1;
     };
 private:
     DATA GameOver;
@@ -36,7 +39,11 @@ public:
     void draw();
     void nextScene();
     void init();
+    void update();
     void setRetryFlag(int flag);
     void setReturnFlag(int flag);
+    void setbgmFlag(int flag) {
+        GameOver.bgmFlag = flag;
+    }
 };
 

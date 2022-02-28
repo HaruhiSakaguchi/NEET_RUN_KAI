@@ -2,6 +2,7 @@
 #include"graphic.h"
 #include"CONTAINER.h"
 #include"GAME.h"
+#include"sound.h"
 #include"ANIMS.h"
 CONTAINER::~CONTAINER() {
 	//１つのアニメーションの開放
@@ -501,21 +502,6 @@ void CONTAINER::CreateData() {
 	Data.holeChara.offsetRight = 70.0f * 2;
 	Data.holeChara.offsetBottom = 80.0f * 2;
 
-	Data.hole2Chara.charaId = MAP::MANHOLE2_ID;
-	Data.hole2Chara.groupId = 1;//敵グループは1
-	Data.hole2Chara.hp = 1;
-	Data.hole2Chara.offsetLeft = 20.0f * 2;
-	Data.hole2Chara.offsetTop = 0.0f * 2;
-	Data.hole2Chara.offsetRight = 70.0f * 2;
-	Data.hole2Chara.offsetBottom = 80.0f * 2;
-			 
-	Data.hole3Chara.charaId = MAP::MANHOLE3_ID;
-	Data.hole3Chara.groupId = 1;//敵グループは1
-	Data.hole3Chara.hp = 1;
-	Data.hole3Chara.offsetLeft = 20.0f * 2;
-	Data.hole3Chara.offsetTop = 0.0f * 2;
-	Data.hole3Chara.offsetRight = 70.0f * 2;
-	Data.hole3Chara.offsetBottom = 80.0f * 2;
 
 	Data.ebifuraiChara.charaId = MAP::EBIFURAI_ID;
 	Data.ebifuraiChara.hp = 1;
@@ -547,9 +533,6 @@ void CONTAINER::CreateData() {
 	Data.charaMng.numChinpira = 1;
 	Data.charaMng.numCats = 10;
 	Data.charaMng.numEnemyBullets = 5;
-	Data.charaMng.numHoles1 = 1;
-	Data.charaMng.numHoles2 = 1;
-	Data.charaMng.numHoles3 = 1;
 	Data.charaMng.numHoles = 3;
 	Data.charaMng.numCokes = 7;
 	Data.charaMng.numTips = 4;
@@ -578,9 +561,28 @@ void CONTAINER::CreateData() {
 	Data.map.centerX = width / 2 - Data.map.chipSize / 2;
 }
 void CONTAINER::LoadGraphics() {
+	Data.prologue.bgm = loadSound("assets\\sound\\prologue\\kenso.wav");
+	Data.prologue.line = loadSound("assets\\sound\\その他\\line\\line.wav");
+	Data.prologue.pachinco = loadSound("assets\\sound\\prologue\\patinco.wav");
+	Data.prologue.decision = loadSound("assets\\sound\\その他\\決定\\決定.wav");
+
+
 	Data.title.image = loadImage("assets\\startImg.png");
 	Data.title.image2 = loadImage("assets\\startButton.png");
 	Data.title.helpImage = loadImage("assets\\ex_01.png");
+
+	Data.title.bgm1 = loadSound("assets\\sound\\start\\start_01.wav");
+	Data.title.bgm2 = loadSound("assets\\sound\\start\\start_02.wav");
+
+	Data.title.cursor = loadSound("assets\\sound\\その他\\カーソル移動\\cursor.wav");
+	Data.title.decision = loadSound("assets\\sound\\その他\\決定\\決定.wav");
+
+
+	Data.story.bgm1 = loadSound("assets\\sound\\ep1^5\\bgm_01.wav");
+	Data.story.bgm2 = loadSound("assets\\sound\\ep_end\\bgm_02.wav");
+
+	Data.ending.bgm = Data.story.bgm2;
+
 
 	Data.story.backImg[0] = loadImage("assets\\ストーリー背景\\ストーリー背景\\home.png");
 	Data.story.backImg[1] = loadImage("assets\\ストーリー背景\\ストーリー背景\\kouji.png");
@@ -590,21 +592,31 @@ void CONTAINER::LoadGraphics() {
 
 	Data.story.skipImg = loadImage("assets\\skip.png");
 	Data.story.skipImg2 = loadImage("assets\\skip.png");
+
 	Data.message.yesImg1 = loadImage("assets\\ok.png");
 	Data.message.yesImg2 = loadImage("assets\\ok.png");
 	Data.message.noImg1 = loadImage("assets\\no.png");
 	Data.message.noImg2 = loadImage("assets\\no.png");
 
+	Data.stage.bgm1 = loadSound("assets\\sound\\stage\\bgm_03.wav");
+	Data.stage.bgm2 = loadSound("assets\\sound\\stage\\bgm_04.wav");
 
 	Data.stage.backImg = loadImage("assets\\back.png");
 
 	Data.stageClear.img = loadImage("assets\\リザルト\\リザルト\\sc.png");
+	Data.stageClear.bgm = loadSound("assets\\sound\\リザルト\\true.wav");
+	Data.stage.damage = loadSound("assets\\sound\\その他\\攻撃\\hit.wav");
+	Data.stage.dead = loadSound("assets\\sound\\その他\\死\\die.wav");
+	Data.stage.recover = loadSound("assets\\sound\\その他\\回復\\re.wav");
+	Data.stage.jump = loadSound("assets\\sound\\その他\\ジャンプ\\jump_01.wav");
+	Data.stage.knock = loadSound("assets\\sound\\その他\\ノックバック\\beer.wav");
 
 	Data.gameOver.retryImg = loadImage("assets\\リザルト\\リザルト\\retry.png");
 	Data.gameOver.gotoTitleImg = loadImage("assets\\リザルト\\リザルト\\title.png");
 	Data.gameOver.retryImg2 = loadImage("assets\\リザルト\\リザルト\\retry.png");
 	Data.gameOver.gotoTitleImg2 = loadImage("assets\\リザルト\\リザルト\\title.png");
 
+	Data.gameOver.bgm = loadSound("assets\\sound\\リザルト\\force.wav");
 	Data.stageClear.nextButtonImg = loadImage("assets\\リザルト\\リザルト\\next.png");
 	Data.stageClear.gotoTitleButtonImg = loadImage("assets\\リザルト\\リザルト\\title.png");
 	Data.stageClear.nextButtonImg2 = loadImage("assets\\リザルト\\リザルト\\next.png");
@@ -621,15 +633,12 @@ void CONTAINER::LoadGraphics() {
 	Data.enemyBulletChara.img4 = loadImage("assets\\item\\item\\敵アイテム\\cut.png");
 
 	Data.holeChara.img = loadImage("assets\\item\\item\\障害物\\skull.png");
-	Data.hole2Chara.img = loadImage("assets\\item\\item\\障害物\\skull.png");
-	Data.hole3Chara.img = loadImage("assets\\item\\item\\障害物\\skull.png");
 	Data.cokeChara.img = loadImage("assets\\item\\item\\回復\\cola.png");
 	Data.tipsChara.img = loadImage("assets\\item\\item\\回復\\potato.png");
 	Data.ramenChara.img = loadImage("assets\\item\\item\\回復\\men.png");
 	Data.bearChara.img = loadImage("assets\\item\\item\\回復\\Beer.png");
 
 	Data.catChara.img = loadImage("assets\\item\\item\\障害物\\cat.png");
-
 
 	Data.ebifuraiChara.img = loadImage("assets\\item\\item\\障害物\\fry.png");
 	Data.rymanChara.img = loadImage("assets\\item\\item\\障害物\\human.png");

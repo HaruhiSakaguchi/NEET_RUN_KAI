@@ -1,6 +1,7 @@
 #include"framework.h"
 #include"graphic.h"
 #include"window.h"
+#include"sound.h"
 #include"CONTAINER.h"
 #include"LOADING.h"
 #include"PROLOGUE.h"
@@ -78,8 +79,8 @@ void GAME::run() {
 		Scenes[i]->create();
 		CurScene = Scenes[i];
 	}
-
-
+	
+	
 	Fade->create();
 	Map->create();
 	HpGauge->create();
@@ -89,6 +90,7 @@ void GAME::run() {
 
 	CurScene = Scenes[5];
 	CurScene->init();
+	
 	initDeltaTime();
 	while (notQuit) {
 		setDeltaTime();

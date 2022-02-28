@@ -16,30 +16,20 @@ void STAGE::create() {
 }
 void STAGE::init() {
 	game()->map()->init();
+	setBgmFlag(1);
 	game()->characterManager()->init();
 	game()->fade()->inTrigger();
-	Stage.count = Stage.maxCount;
 }
 void STAGE::update() {
-	Stage.flag = 0;
-	//if (Stage.count != 0) {
-	//	countDown();
-	//}
-	
+	if (game()->curStateId() != GAME::FIFTH) {
+		setBgm(Stage.bgm1);
+	}
+	else {
+		setBgm(Stage.bgm2);
+	}
 	game()->characterManager()->update();
 	game()->map()->update();
-
-	//if (Stage.flag == 0 && isTrigger(MOUSE_RBUTTON)) {
-	//	Stage.flag = 1;
-	//}
-	//if (Stage.flag == 1) {
-	//	stagePause();
-	//	if (isTrigger(MOUSE_RBUTTON)) { Stage.flag = 0; }
-	//}
-	//textSize(Stage.textSize);
-	//text(Stage.flag, Stage.pos.x + Stage.textSize * 4, Stage.pos.y);
-	
-
+	sound();
 }
 void STAGE::draw() {
 	backGround();
@@ -47,12 +37,6 @@ void STAGE::draw() {
 	fill(Stage.textColor);
 	textSize(Stage.textSize);
 	text(Stage.str, Stage.pos.x, Stage.pos.y);
-	//text(game()->characterManager()->player()->PlayerSta(), 100, 100);
-	//text(game()->characterManager()->player()->interval(), 100, 150);
-
-
-	
-
 #ifdef _DEBUG
 	int stageNum = 0;
 	if (game()->curStateId() == GAME::FIRST) {
@@ -68,10 +52,6 @@ void STAGE::draw() {
 	fill(Stage.textColor);
 	textSize(Stage.textSize);
 	text(stageNum, Stage.pos.x + Stage.textSize*3, Stage.pos.y);
-
-	//text(delta,700,100);
-
-
 #endif
 	game()->hpGauge()->draw();
 	game()->characterManager()->draw();
@@ -79,9 +59,6 @@ void STAGE::draw() {
 }
 void STAGE::backGround() {
 	clear();
-	
-
-
 	rectMode(CORNER);
 	imageColor(Stage.backColor);
 	
@@ -96,6 +73,9 @@ void STAGE::nextScene() {
 		game()->fade()->outTrigger();
 		if (game()->fade()->outEndFlag()) {
 			game()->changeScene(GAME::STAGE_CLEAR_ID);
+			setBgmFlag(0);
+			stopSound(Stage.bgm);
+			init();
 		}
 	}
 	if (game()->characterManager()->player()->died() || game()->characterManager()->enemy()->survived()) {
@@ -116,10 +96,55 @@ void STAGE::nextScene() {
 			}
 		}
 		else game()->changeScene(GAME::GAME_OVER_ID);
+		setBgmFlag(0);
+		stopSound(Stage.bgm);
+		init();
 	}
 		
 	
 	if (game()->curStateId() == GAME::END) {
 		game()->changeScene(GAME::STORY_ID);
+		stopSound(Stage.bgm);
+		setBgmFlag(0);
+		init();
 	}
+}
+void STAGE::sound() {
+	if (game()->characterManager()->player()->PjumpFlag() == 1) {
+		playSound(Stage.jump);
+		game()->characterManager()->player()->setVjumpFlag(0);
+	}
+	if (game()->characterManager()->player()->PrecoverFlag() == 1) {
+		playSound(Stage.recover);
+		game()->characterManager()->player()->setPRecoverFlag(0);
+	}
+	if (game()->characterManager()->player()->PdamageFlag() == 1) {
+		playSound(Stage.damage);
+		game()->characterManager()->player()->setPDamageFlag(0);
+	}
+	if (game()->characterManager()->player()->PdeathFlag() == 1) {
+		playSound(Stage.dead);
+		game()->characterManager()->player()->setDeathFlag(0);
+	}
+	if (game()->characterManager()->player()->PknockFlag() == 1) {
+		playSound(Stage.knock);
+		game()->characterManager()->player()->setKnockFlag(0);
+	}
+	if (game()->characterManager()->enemy()->EjumpFlag() == 1) {
+		playSound(Stage.jump);
+		game()->characterManager()->enemy()->setVJumpFlag(0);
+	}
+	if (game()->characterManager()->enemy()->ErecoverFlag() == 1) {
+		playSound(Stage.recover);
+		game()->characterManager()->enemy()->setERecoverFlag(0);
+	}
+	if (game()->characterManager()->enemy()->EdamageFlag() == 1) {
+		playSound(Stage.damage);
+		game()->characterManager()->enemy()->setEDamageFlag(0);
+	}
+	if (Stage.bgmFlag == 1) {
+			playLoopSound(Stage.bgm);
+			setBgmFlag(0);
+	}
+	
 }

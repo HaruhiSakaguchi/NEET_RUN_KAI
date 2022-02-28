@@ -44,6 +44,7 @@ void ENEMY::jump() {
     if (Enemy.jumpFlag == 0) {
         Chara.vy = Enemy.initVecUp;
         Enemy.jumpFlag = 1;
+        setVJumpFlag(1);
     }
     if (Enemy.jumpFlag == 1) {
         Chara.vy += Enemy.gravity * delta;

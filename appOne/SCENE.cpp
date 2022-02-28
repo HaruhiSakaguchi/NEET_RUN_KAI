@@ -15,3 +15,6 @@ void SCENE::draw() {
 }
 void SCENE::nextScene() {
 }
+void SCENE::backGroundMusic() {
+    
+}

@@ -62,7 +62,6 @@ void COUNT_DOWN::draw() {
 			toOne();
 		}
 		break;
-
 	case STATE::ONE:
 		CD.count = 1;
 		CD.interval -= CD.speed * delta;

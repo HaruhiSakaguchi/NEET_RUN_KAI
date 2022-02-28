@@ -17,6 +17,8 @@ public:
         float speed = 50.0f * 2;
         float interval = 0.0f;
         float maxInterval = 50000.0f;
+        int bgmFlag = 1;
+        int bgm = 0;
     };
 private:
     DATA Ending;
@@ -38,6 +40,9 @@ public:
     }
     void setInterval(float interval) {
         Ending.interval = interval;
+    }
+    void setBgmFlag(int flag) {
+        Ending.bgmFlag = flag;
     }
     void setImage();
     void toE2();

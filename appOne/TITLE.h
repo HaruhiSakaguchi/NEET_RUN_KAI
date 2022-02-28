@@ -27,6 +27,13 @@ public:
         COLOR color1;
         COLOR color2;
         const char* text1 = "ゲームスタート";
+        int bgm1 = 0;
+        int bgm2 = 0;
+        int bgmFlag = 1;
+        int decision = 0;
+
+        int cursor = 0;
+        int cursorFlag = 0;
 
     };
 private:
@@ -44,6 +51,9 @@ public:
     void setFlag(int flag);
     void setHelp(int flag) {
         Title.helpFlag = flag;
+    }
+    void setBgmFlag(int flag) {
+        Title.bgmFlag = flag;
     }
 };
 

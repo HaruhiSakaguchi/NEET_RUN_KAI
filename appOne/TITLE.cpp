@@ -18,6 +18,7 @@ void TITLE::create() {
 }
 void TITLE::init() {
 	game()->fade()->inTrigger();
+	setBgmFlag(1);
 }
 void TITLE::draw() {
 	clear();
@@ -30,9 +31,11 @@ void TITLE::draw() {
 	image(Title.image, 0, 0);
 	rectMode(CENTER);
 	if (game()->button()->collisionRect(Title.buttonPos, Title.buttonW, Title.buttonH)) {
+		Title.cursorFlag = 1;
 		color = collisionColor;
 	}
 	else {
+		Title.cursorFlag = 0;
 		color = normalColor;
 	}
 	imageColor(normalColor);
@@ -61,23 +64,34 @@ void TITLE::draw() {
 #ifdef _DEBUG
 	fill(255, 255, 255);
 	textSize(30);
-	//text("SPACE‚Åis", 30, 30);
 #endif
 	game()->button()->drawCursor();
 	game()->fade()->draw();
 
+	if (Title.cursorFlag == 1) {
+		playSound(Title.cursor);
+	}
+	if (Title.flag == 1) {
+		playSound(Title.decision);
+	}
 }
 void TITLE::update() {
 	chapter();
 	if (Title.helpFlag == 0) {
 		if (isTrigger(KEY_ENTER) || isTrigger(MOUSE_RBUTTON)) {
 			setHelp(1);
+			playSound(Title.decision);
 		}
 	}
 	else if (Title.helpFlag == 1) {
 		if (isTrigger(KEY_ENTER) || isTrigger(MOUSE_RBUTTON)) {
 			setHelp(0);
+			playSound(Title.decision);
 		}
+	}
+	if (Title.bgmFlag == 1) {
+		playLoopSound(Title.bgm1);
+		setBgmFlag(0);
 	}
 
 }
@@ -91,6 +105,7 @@ void TITLE::nextScene() {
 	}
 	else if (Title.flag == 1) {
 		game()->fade()->outTrigger();
+		setFlag(0);
 	}
 	if (game()->fade()->outEndFlag()) {
 		switch (Title.chapter) {
@@ -111,7 +126,9 @@ void TITLE::nextScene() {
 			break;
 		}
 		game()->changeScene(GAME::STORY_ID);
-		setFlag(0);
+		setBgmFlag(0);
+		stopSound(Title.bgm1);
+		init();
 	}
 }
 void TITLE::chapter() {

@@ -27,6 +27,9 @@ public:
         float buttonH = buttonNameTextSize * 2.0f;
         const char* nextText=0;
         const char* backToTitleText=0;
+
+        int bgm = 0;
+        int bgmFlag = 1;
     };
 private:
     DATA StageClear;
@@ -37,7 +40,11 @@ public:
     void nextScene();
     void create();
     void init();
+    void update();
     void setGoFlag(int flag);
     void setReturnFlag(int flag);
+    void setBgmFlag(int flag) {
+        StageClear.bgmFlag = flag;
+    }
 };
 

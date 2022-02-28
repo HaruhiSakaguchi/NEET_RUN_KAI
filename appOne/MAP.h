@@ -46,8 +46,6 @@ public:
 		MENHERA_ID = 'n',
 		ONISAN_ID = 'o',
 		MANHOLE_ID = 'f',//1
-		MANHOLE2_ID = 'p',//1
-		MANHOLE3_ID = 'q',//1
 
 
 	};

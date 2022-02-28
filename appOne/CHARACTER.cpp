@@ -64,12 +64,6 @@ void CHARACTER::knock() {
 void CHARACTER::fall() {
 
 }
-void CHARACTER::fall2() {
-
-}
-void CHARACTER::fall3() {
-
-}
 void CHARACTER::caught() {
 
 }

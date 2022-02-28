@@ -170,12 +170,6 @@
     <ClCompile Include="PLAYER_BULLET.cpp">
       <Filter>character</Filter>
     </ClCompile>
-    <ClCompile Include="HOLE3.cpp">
-      <Filter>obstacle&amp;trap</Filter>
-    </ClCompile>
-    <ClCompile Include="HOLE2.cpp">
-      <Filter>obstacle&amp;trap</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GAME.h">
@@ -288,12 +282,6 @@
     </ClInclude>
     <ClInclude Include="PLAYER_BULLET.h">
       <Filter>character</Filter>
-    </ClInclude>
-    <ClInclude Include="HOLE3.h">
-      <Filter>obstacle&amp;trap</Filter>
-    </ClInclude>
-    <ClInclude Include="HOLE2.h">
-      <Filter>obstacle&amp;trap</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

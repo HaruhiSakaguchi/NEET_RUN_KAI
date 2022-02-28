@@ -434,15 +434,11 @@ void MESSAGE::draw() {
 			Message.text = Message.text5_11;
 			Message.text2 = Message.space;
 			setCharaName(Message.neet);
-
-
 		}
 		if (game()->curStateId() == GAME::END) {
 			Message.text = Message.textLast_11;
 			Message.text2 = Message.space;
 			setCharaName(Message.space);
-
-
 		}
 		break;
 	case GAME::text_12:

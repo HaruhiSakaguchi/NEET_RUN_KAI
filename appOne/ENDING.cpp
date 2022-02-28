@@ -5,6 +5,7 @@
 #include"graphic.h"
 #include"input.h"
 #include"window.h"
+#include"STORY.h"
 #include "TITLE.h"
 ENDING::ENDING(class GAME* game) :
 	SCENE(game) {
@@ -20,6 +21,7 @@ void ENDING::init() {
 	curImageNum = ImageNum::E1;
 	game()->fade()->inTrigger();
 	game()->changeState(GAME::FIRST);
+	setBgmFlag(1);
 }
 void ENDING::toE2() {
 	if (curImageNum == ImageNum::E1) {
@@ -55,6 +57,9 @@ void ENDING::nextScene() {
 			game()->changeScene(GAME::TITLE_ID);
 			game()->changeState(GAME::FIRST);
 			game()->changeText(GAME::text_1);
+			stopSound(Ending.bgm);
+			setBgmFlag(0);
+			init();
 		}
 	}
 }
@@ -115,6 +120,9 @@ void ENDING::update() {
 		break;
 	}
 
+	if (Ending.bgmFlag == 1) {
+		playLoopSound(Ending.bgm);
+	}
 	setImage();
 }
 void ENDING::setImage() {

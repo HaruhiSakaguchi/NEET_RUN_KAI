@@ -29,7 +29,10 @@ public:
        int leftAnimId = 1;
 
        int jumpFlag = 0;
-       
+       int jumpVFlag = 0;
+       int recoverFlag = 0;
+       int damageFlag = 0;
+       int knockFlag = 0;
        
        float curWx = 0;
        float initVecUp = 0;
@@ -60,6 +63,18 @@ public:
     void init();
     void checkState();
     void jump();
+    void setVJumpFlag(int flag) {
+        Enemy.jumpVFlag = flag;
+    }
+    void setERecoverFlag(int flag) {
+        Enemy.recoverFlag = flag;
+    }
+    void setEDamageFlag(int flag) {
+        Enemy.damageFlag = flag;
+    }
+    void setKnockFlag(int flag) {
+        Enemy.knockFlag = flag;
+    }
     bool survived();
    
     int triggerCnt() { return Enemy.triggerCnt; }
@@ -67,6 +82,11 @@ public:
     int trigger2nd() { return Enemy.trigger2nd; }
     int trigger3rd() { return Enemy.trigger3rd; }
     int trigger4th() { return Enemy.trigger4th; }
+
+    int EjumpFlag() { return Enemy.jumpVFlag; }
+    int ErecoverFlag() { return Enemy.recoverFlag; }
+    int EdamageFlag() { return Enemy.damageFlag; }
+    int EknockFlag() { return Enemy.knockFlag; }
 
 };
        

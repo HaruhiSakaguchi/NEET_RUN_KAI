@@ -66,8 +66,6 @@ public:
     virtual void Ldamage();
     virtual void knock();
     virtual void fall();
-    virtual void fall2();
-    virtual void fall3();
     virtual void caught();
     virtual void noDamage();
     virtual void drawRectArea(float px, float py, float Left, float Top, float Right, float Bottom);

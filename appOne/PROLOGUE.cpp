@@ -12,20 +12,24 @@ void PROLOGUE::create() {
 void PROLOGUE::init() {
 	game()->settextNum(GAME::t1);
 	game()->fade()->inTrigger();
+	setBgmFlag(1);
 }
 void PROLOGUE::draw() {
 	switch (game()->curPTextId()) {
 	case GAME::t1:
 		Prologue.text = Prologue.iText1;
 		Prologue.text2 = Prologue.iTextNormal;
+		setPachincoFlagOne();
 		break;
 	case GAME::t2:
 		Prologue.text = Prologue.iText2;
 		Prologue.text2 = Prologue.iTextNormal;
+		setPachincoFlagZero();
 		break;
 	case GAME::t3:
 		Prologue.text = Prologue.iText3;
 		Prologue.text2 = Prologue.iTextNormal;
+
 
 		break;
 	case GAME::t4:
@@ -41,31 +45,45 @@ void PROLOGUE::draw() {
 	case GAME::t6:
 		Prologue.text = Prologue.iText6;
 		Prologue.text2 = Prologue.iTextc;
+		setLineFlagOne();
 
 		break;
 	case GAME::t7:
 		Prologue.text = Prologue.iText7;
 		Prologue.text2 = Prologue.iTextNormal;
+		setLineFlagZero();
 
 		break;
 	case GAME::t8:
 		Prologue.text = Prologue.iText8;
 		Prologue.text2 = Prologue.iTextNormal;
+		setLineFlagOne();
 
 		break;
 	case GAME::t9:
 		Prologue.text = Prologue.iText9;
 		Prologue.text2 = Prologue.iTextNormal;
+		setLineFlagZero();
+		setLineFlagOne();
+
+
 
 		break;
 	case GAME::t10:
 		Prologue.text = Prologue.iText10;
 		Prologue.text2 = Prologue.iTextNormal;
+		setLineFlagZero();
+		setLineFlagOne();
+
+
+
 
 		break;
 	case GAME::t11:
 		Prologue.text = Prologue.iText11;
 		Prologue.text2 = Prologue.iTextNormal;
+		setLineFlagZero();
+
 
 		break;
 	case GAME::t12:
@@ -201,8 +219,16 @@ void PROLOGUE::update() {
 				game()->settextNum(GAME::Plast);
 				break;
 			}
+			if (Prologue.decisionFlag == 1)mas(Prologue.decisionFlag, Prologue.decision);
+	        if(Prologue.pachincoFlag == 1)mas(Prologue.pachincoFlag, Prologue.pachinco);
+			if (Prologue.lineFlag == 1)mas(Prologue.lineFlag, Prologue.line);
+
 		}
 	}
+			if (Prologue.bgmFlag == 1) {
+				playLoopSound(Prologue.bgm);
+				setBgmFlag(0);
+			}
 }
 void PROLOGUE::nextScene() {
 	if (game()->curPTextId() == GAME::Plast) {
@@ -210,6 +236,27 @@ void PROLOGUE::nextScene() {
 	}
 	if(game()->fade()->outEndFlag()) {
 		game()->changeScene(GAME::TITLE_ID);
+		setBgmFlag(0);
+		stopSound(Prologue.bgm);
 	}
 	
+}
+void PROLOGUE::setFlagZero(int flag) {
+	flag = 0;
+}
+void PROLOGUE::setPachincoFlagOne() {
+	Prologue.pachincoFlag = 1;
+}
+void PROLOGUE::setPachincoFlagZero() {
+	Prologue.pachincoFlag = 0;
+}
+void PROLOGUE::setLineFlagOne() {
+	Prologue.lineFlag = 1;
+}
+void PROLOGUE::setLineFlagZero() {
+	Prologue.lineFlag = 0;
+}
+void PROLOGUE::mas(int flag ,int sound) {
+	playSound(sound);
+	setFlagZero(flag);
 }

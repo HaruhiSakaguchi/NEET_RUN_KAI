@@ -13,7 +13,9 @@ STORY::~STORY() {
 
 }
 void STORY::init() {
+	//setBgm(Story.bgm1);
 	game()->fade()->inTrigger();
+	setBgmFlag(1);
 }
 void STORY::create() {
 	Story = game()->container()->data().story;
@@ -44,36 +46,11 @@ void STORY::draw() {
 	imageColor(tcolor);
 	image(Story.skipImg2, Story.skipButtonPos.x, Story.skipButtonPos.y);
 
-
-
-
-#ifdef _DEBUG
-	/*int i = 0;
-	if (game()->curStateId() == GAME::FIRST) {
-		i = 1;
-	}
-	else if (game()->curStateId() == GAME::SECOND) {
-		i = 2;
-	}
-	else if (game()->curStateId() == GAME::THIRD) i = 3;
-	else if (game()->curStateId() == GAME::FOURTH)i = 4;
-	else if (game()->curStateId() == GAME::FIFTH)i = 5;
-	else if (game()->curStateId() == GAME::END)i = 6;
-	fill(Story.textColor);
-	textSize(Story.textSize);
-	text(i, 750, 400);
-	fill(255, 255, 255);
-	textSize(30);
-	text("SPACEで進行 テキストを表示し終えたらステージへ　Zキーでスキップ", 30, 30);*/
-#endif
-
-	//stroke(Story.backColor);
-	//textSize(Story.textSize);
-	//fill(Story.textColor);
-	//text(Story.str, Story.pos.x, Story.pos.y);
-
-
 	if (Story.Flag == 1) {
+		if (Story.otoFlag == 1) {
+			playSound(game()->container()->data().title.decision);
+			setOtoFlag(0);
+		}
 		game()->message()->AttentionWindow(Story.text, Story.text2, Story.text3);
 	}
 
@@ -94,9 +71,16 @@ void STORY::nextScene() {
 				) {
 				game()->changeScene(GAME::STAGE_ID);
 				game()->message()->init();
+				setBgmFlag(0);
+				stopSound(Story.bgm);
+				init();
 			}
-			else if (game()->curStateId() == GAME::END)
+			else if (game()->curStateId() == GAME::END) {
 				game()->changeScene(GAME::ENDING_ID);
+				setBgmFlag(0);
+				stopSound(Story.bgm);
+				init();
+			}
 		}
 	}
 
@@ -104,6 +88,7 @@ void STORY::nextScene() {
 	if (Story.Flag == 0 && ((isTrigger(KEY_Z) || isTrigger(MOUSE_RBUTTON)) ||
 		(game()->button()->collisionRect(Story.skipButtonPos, Story.skipButtonW, Story.skipButtonH) && isTrigger(MOUSE_LBUTTON)))) {
 		setAttentinonFlag(1);
+		setOtoFlag(1);
 	}
 	else {
 		if (
@@ -133,6 +118,7 @@ void STORY::nextScene() {
 				) && isTrigger(MOUSE_LBUTTON))
 			)
 		{
+			setOtoFlag(1);
 			game()->fade()->outTrigger();
 			setAttentinonFlag(0);
 		}
@@ -147,15 +133,31 @@ void STORY::nextScene() {
 			) {
 			game()->changeScene(GAME::COUNT_DOWN_ID);
 			game()->message()->init();
+			setBgmFlag(0);
+			stopSound(Story.bgm);
+			init();
 		}
-		else if (game()->curStateId() == GAME::END)
+		else if (game()->curStateId() == GAME::END) {
 			game()->changeScene(GAME::ENDING_ID);
+			setBgm(Story.bgm2);
+			setBgmFlag(0);
+			stopSound(Story.bgm);
+			init();
+		}
 	}
 }
 void STORY::setAttentinonFlag(int flag) {
 	Story.Flag = flag;
 }
 void STORY::update() {
+	if (game()->curStateId() != GAME::END) {
+		setBgm(Story.bgm1);
+	}
+	else setBgm(Story.bgm2);
+	if (Story.bgmFlag == 1) {
+		playLoopSound(Story.bgm);
+		setBgmFlag(0);
+	}
 	if (Story.Flag == 0) {
 		if (game()->button()->collisionRect(Story.skipButtonPos, Story.skipButtonW, Story.skipButtonH)) {
 		}

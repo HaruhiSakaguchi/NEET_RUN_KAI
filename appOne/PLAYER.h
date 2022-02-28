@@ -9,6 +9,10 @@ public:
         int leftAnimId = 1;
         int jumpFlag = 0;
         int deathFlag = 0;
+        int jumpVFlag = 0;
+        int recoverFlag = 0;
+        int damageFlag = 0;
+        int knockFlag = 0;
         float speed = 0;
         float maxSpeed = 0;
         float curWx = 0;
@@ -44,8 +48,18 @@ private:
     void Launch();
 public:
     void fall();
-    void fall2();
-    void fall3();
+    void setVjumpFlag(int flag) {
+        Player.jumpVFlag = flag;
+    }
+    void setPRecoverFlag(int flag) {
+        Player.recoverFlag = flag;
+    }
+    void setPDamageFlag(int flag) {
+        Player.damageFlag = flag;
+    }
+    void setKnockFlag(int flag) {
+        Player.knockFlag = flag;
+    }
     void Ddamage();
     bool died();
     bool survived();
@@ -53,11 +67,16 @@ public:
     void setDeathFlag(int flag) {
         Player.deathFlag = flag;
     }
+
     float overCenterVx();
 
 
     STATE_ID stateId() { return StateId; }
     float PlayerSta() { return Chara.stamina; }
     float interval() { return Chara.damageTime; }
-
+    int PjumpFlag() { return Player.jumpVFlag; }
+    int PrecoverFlag() { return Player.recoverFlag; }
+    int PdamageFlag() { return Player.damageFlag; }
+    int PknockFlag() { return Player.knockFlag; }
+    int PdeathFlag() { return Player.deathFlag; }
 };
